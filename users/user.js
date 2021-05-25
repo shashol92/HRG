@@ -1,10 +1,12 @@
 const express = require('express');
+const app = express();
 const router = express.Router();
 const request = require('request');
 const Users = require("../users/users-model");
 const PostSchema = require('../posts/post-model');
 const mongoose = require('mongoose');
-
+const cors = require('cors');
+router.use(cors());
 router.get('/insertUsers', (req, res) => {
     const url = "https://jsonplaceholder.typicode.com/users";
     request(url, (error, response, body) => {
